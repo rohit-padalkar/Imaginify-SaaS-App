@@ -1,7 +1,6 @@
 "use client";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -53,8 +52,8 @@ const MobileNav = () => {
                     return (
                       <li
                         className={`${
-                          isActive && "gradient-text"
-                        } p-18 flex whitespace-nowrap text-dark-700`}
+                          isActive ? "gradient-text" : "text-dark-700"
+                        } p-18 flex whitespace-nowrap`}
                         key={link.route}
                       >
                         <Link
@@ -63,9 +62,13 @@ const MobileNav = () => {
                         >
                           <Image
                             src={link.icon}
-                            alt="logo"
+                            alt={`${link.label} icon`} // Descriptive alt text
                             width={24}
                             height={24}
+                            onError={(e) => {
+                              e.currentTarget.src =
+                                "/assets/icons/default-icon.svg"; // Fallback icon
+                            }}
                           />
                           {link.label}
                         </Link>

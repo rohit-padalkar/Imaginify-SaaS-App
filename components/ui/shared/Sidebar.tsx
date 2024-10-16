@@ -9,6 +9,7 @@ import { Button } from "../button";
 
 const Sidebar = () => {
   const pathname = usePathname();
+
   return (
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
@@ -38,10 +39,14 @@ const Sidebar = () => {
                     <Link className="sidebar-link" href={link.route}>
                       <Image
                         src={link.icon}
-                        alt="logo"
+                        alt={`${link.label} icon`} // Descriptive alt text
                         width={24}
                         height={24}
                         className={`${isActive && "brightness-200"}`}
+                        onError={(e) => {
+                          e.currentTarget.src =
+                            "/assets/icons/default-icon.svg"; // Fallback icon
+                        }}
                       />
                       {link.label}
                     </Link>
@@ -66,10 +71,14 @@ const Sidebar = () => {
                     <Link className="sidebar-link" href={link.route}>
                       <Image
                         src={link.icon}
-                        alt="logo"
+                        alt={`${link.label} icon`} // Descriptive alt text
                         width={24}
                         height={24}
                         className={`${isActive && "brightness-200"}`}
+                        onError={(e) => {
+                          e.currentTarget.src =
+                            "/assets/icons/default-icon.svg"; // Fallback icon
+                        }}
                       />
                       {link.label}
                     </Link>
