@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../button";
-import { navLinks } from "@/app/constants";
+import { navLinks } from "@/constants";
 
 const MobileNav = () => {
   const pathname = usePathname();
