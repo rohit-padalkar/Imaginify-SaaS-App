@@ -14,7 +14,12 @@ const Sidebar = () => {
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
         <Link href="/" className="sidebar-logo">
-          <Image src="/logo-text.svg" alt="logo" width={180} height={28} />
+          <Image
+            src="https://raw.githubusercontent.com/adrianhajdin/ai_saas_app/refs/heads/main/public/assets/images/logo-text.svg" // Use this sample image or upload your own via the Media Explorer
+            width="200" // Transform the image: auto-crop to square aspect_ratio
+            height="200"
+            alt="logo"
+          />
           <span className="text-xl font-bold"></span>
         </Link>
 
