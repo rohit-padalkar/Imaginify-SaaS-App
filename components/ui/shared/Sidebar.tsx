@@ -2,10 +2,10 @@
 
 import { navLinks } from "@/constants";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../button";
-import Image from "next/image";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -15,34 +15,40 @@ const Sidebar = () => {
       <div className="flex size-full flex-col gap-4">
         <Link href="/" className="sidebar-logo">
           <Image
-            src="https://raw.githubusercontent.com/adrianhajdin/ai_saas_app/refs/heads/main/public/assets/images/logo-text.svg" // Use this sample image or upload your own via the Media Explorer
-            width="200" // Transform the image: auto-crop to square aspect_ratio
-            height="200"
+            src="https://raw.githubusercontent.com/adrianhajdin/ai_saas_app/refs/heads/main/public/assets/images/logo-text.svg"
             alt="logo"
+            width={180}
+            height={28}
           />
-          <span className="text-xl font-bold"></span>
         </Link>
 
         <nav className="sidebar-nav">
           <SignedIn>
             <ul className="sidebar-nav_elements">
               {navLinks.slice(0, 6).map((link) => {
-                const isActive = link.route === pathname;
+                const isActive =
+                  pathname === link.route ||
+                  pathname.startsWith(`${link.route}/`);
 
                 return (
                   <li
                     key={link.route}
-                    className={`sidebar-nav_element group p-2 rounded-lg ${
+                    className={`sidebar-nav_element group ${
                       isActive
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-100 text-gray-700"
+                        ? "bg-blue-500 text-yellow-100" // Update to your desired active styles
+                        : "text-gray-700"
                     }`}
                   >
-                    <Link
-                      className="sidebar-link"
-                      href={link.route}
-                      style={{ fontSize: "0.875rem" }}
-                    >
+                    <Link className="sidebar-link" href={link.route}>
+                      <Image
+                        src={link.icon}
+                        alt="logo"
+                        width={24}
+                        height={24}
+                        className={`${
+                          isActive ? "brightness-200" : "brightness-100"
+                        }`}
+                      />
                       {link.label}
                     </Link>
                   </li>
@@ -52,22 +58,29 @@ const Sidebar = () => {
 
             <ul className="sidebar-nav_elements">
               {navLinks.slice(6).map((link) => {
-                const isActive = link.route === pathname;
+                const isActive =
+                  pathname === link.route ||
+                  pathname.startsWith(`${link.route}/`);
 
                 return (
                   <li
                     key={link.route}
-                    className={`sidebar-nav_element group p-2 rounded-lg ${
+                    className={`sidebar-nav_element group ${
                       isActive
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-100 text-gray-700"
+                        ? "bg-blue-500 text-yellow-100" // Update to your desired active styles
+                        : "text-gray-700"
                     }`}
                   >
-                    <Link
-                      className="sidebar-link"
-                      href={link.route}
-                      style={{ fontSize: "0.875rem" }}
-                    >
+                    <Link className="sidebar-link" href={link.route}>
+                      <Image
+                        src={link.icon}
+                        alt="logo"
+                        width={24}
+                        height={24}
+                        className={`${
+                          isActive ? "brightness-0" : "brightness-100"
+                        }`}
+                      />
                       {link.label}
                     </Link>
                   </li>
