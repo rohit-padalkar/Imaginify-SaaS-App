@@ -2,42 +2,42 @@ export const navLinks = [
   {
     label: "Home",
     route: "/",
-    icon: "/assets/icons/home.svg",
+    icon: "/assets/icons/home.png",
   },
   {
     label: "Image Restore",
     route: "/transformations/add/restore",
-    icon: "/assets/icons/image.svg",
+    icon: "/assets/icons/image.png",
   },
   {
     label: "Generative Fill",
     route: "/transformations/add/fill",
-    icon: "/assets/icons/stars.svg",
+    icon: "/assets/icons/stars.png",
   },
   {
     label: "Object Remove",
     route: "/transformations/add/remove",
-    icon: "/assets/icons/scan.svg",
+    icon: "/assets/icons/scan.png",
   },
   {
     label: "Object Recolor",
     route: "/transformations/add/recolor",
-    icon: "/assets/icons/filter.svg",
+    icon: "/assets/icons/filter.png",
   },
   {
     label: "Background Remove",
     route: "/transformations/add/removeBackground",
-    icon: "/assets/icons/camera.svg",
+    icon: "/assets/icons/camera.png",
   },
   {
     label: "Profile",
     route: "/profile",
-    icon: "/assets/icons/profile.svg",
+    icon: "/assets/icons/profile.png",
   },
   {
     label: "Buy Credits",
     route: "/credits",
-    icon: "/assets/icons/bag.svg",
+    icon: "/assets/icons/bag.png",
   },
 ];
 
@@ -45,7 +45,7 @@ export const plans = [
   {
     _id: 1,
     name: "Free",
-    icon: "/assets/icons/free-plan.svg",
+    icon: "/assets/icons/free-plan.png",
     price: 0,
     credits: 20,
     inclusions: [
@@ -70,7 +70,7 @@ export const plans = [
   {
     _id: 2,
     name: "Pro Package",
-    icon: "/assets/icons/free-plan.svg",
+    icon: "/assets/icons/free-plan.png",
     price: 40,
     credits: 120,
     inclusions: [
@@ -95,7 +95,7 @@ export const plans = [
   {
     _id: 3,
     name: "Premium Package",
-    icon: "/assets/icons/free-plan.svg",
+    icon: "/assets/icons/free-plan.png",
     price: 199,
     credits: 2000,
     inclusions: [
@@ -125,21 +125,21 @@ export const transformationTypes = {
     title: "Restore Image",
     subTitle: "Refine images by removing noise and imperfections",
     config: { restore: true },
-    icon: "image.svg",
+    icon: "image.png",
   },
   removeBackground: {
     type: "removeBackground",
     title: "Background Remove",
     subTitle: "Removes the background of the image using AI",
     config: { removeBackground: true },
-    icon: "camera.svg",
+    icon: "camera.png",
   },
   fill: {
     type: "fill",
     title: "Generative Fill",
     subTitle: "Enhance an image's dimensions using AI outpainting",
     config: { fillBackground: true },
-    icon: "stars.svg",
+    icon: "stars.png",
   },
   remove: {
     type: "remove",
@@ -148,7 +148,7 @@ export const transformationTypes = {
     config: {
       remove: { prompt: "", removeShadow: true, multiple: true },
     },
-    icon: "scan.svg",
+    icon: "scan.png",
   },
   recolor: {
     type: "recolor",
@@ -157,7 +157,7 @@ export const transformationTypes = {
     config: {
       recolor: { prompt: "", to: "", multiple: true },
     },
-    icon: "filter.svg",
+    icon: "filter.png",
   },
 };
 

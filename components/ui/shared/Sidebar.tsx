@@ -1,11 +1,11 @@
 "use client";
+
 import { navLinks } from "@/constants";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 import { Button } from "../button";
+import Image from "next/image";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -15,12 +15,14 @@ const Sidebar = () => {
       <div className="flex size-full flex-col gap-4">
         <Link href="/" className="sidebar-logo">
           <Image
-            src="/assets/images/logo-text.svg"
+            src="/assets/images/logo-text.png"
             alt="logo"
             width={180}
             height={28}
           />
+          <span className="text-xl font-bold"></span>
         </Link>
+
         <nav className="sidebar-nav">
           <SignedIn>
             <ul className="sidebar-nav_elements">
@@ -30,24 +32,17 @@ const Sidebar = () => {
                 return (
                   <li
                     key={link.route}
-                    className={`sidebar-nav_element group ${
+                    className={`sidebar-nav_element group p-2 rounded-lg ${
                       isActive
-                        ? "bg-purple-gradient text-white"
-                        : "text-gray-700"
+                        ? "bg-blue-500 text-white"
+                        : "bg-gray-100 text-gray-700"
                     }`}
                   >
-                    <Link className="sidebar-link" href={link.route}>
-                      <Image
-                        src={link.icon}
-                        alt={`${link.label} icon`} // Descriptive alt text
-                        width={24}
-                        height={24}
-                        className={`${isActive && "brightness-200"}`}
-                        onError={(e) => {
-                          e.currentTarget.src =
-                            "/assets/icons/default-icon.svg"; // Fallback icon
-                        }}
-                      />
+                    <Link
+                      className="sidebar-link"
+                      href={link.route}
+                      style={{ fontSize: "0.875rem" }}
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -62,29 +57,23 @@ const Sidebar = () => {
                 return (
                   <li
                     key={link.route}
-                    className={`sidebar-nav_element group ${
+                    className={`sidebar-nav_element group p-2 rounded-lg ${
                       isActive
-                        ? "bg-purple-gradient text-white"
-                        : "text-gray-700"
+                        ? "bg-blue-500 text-white"
+                        : "bg-gray-100 text-gray-700"
                     }`}
                   >
-                    <Link className="sidebar-link" href={link.route}>
-                      <Image
-                        src={link.icon}
-                        alt={`${link.label} icon`} // Descriptive alt text
-                        width={24}
-                        height={24}
-                        className={`${isActive && "brightness-200"}`}
-                        onError={(e) => {
-                          e.currentTarget.src =
-                            "/assets/icons/default-icon.svg"; // Fallback icon
-                        }}
-                      />
+                    <Link
+                      className="sidebar-link"
+                      href={link.route}
+                      style={{ fontSize: "0.875rem" }}
+                    >
                       {link.label}
                     </Link>
                   </li>
                 );
               })}
+
               <li className="flex-center cursor-pointer gap-2 p-4">
                 <UserButton showName />
               </li>

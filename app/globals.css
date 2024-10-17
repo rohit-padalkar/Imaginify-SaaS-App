@@ -302,7 +302,7 @@
   }
 
   .header-nav_elements {
-    @apply mt-8 flex w-full flex-col items-start gap-5;
+    @apply overflow-auto h-full; /* Or define a specific height if necessary */
   }
 
   /* Search Component */
@@ -327,8 +327,12 @@
     @apply hidden w-full flex-col items-start gap-2 md:flex;
   }
 
+  .sidebar-nav_element:hover {
+    @apply bg-purple-500 shadow-inner; /* Your desired hover effect */
+  }
+
   .sidebar-nav_element {
-    @apply flex-center p-16-semibold w-full whitespace-nowrap rounded-full bg-cover  transition-all hover:bg-purple-100 hover:shadow-inner;
+    @apply flex-center p-16-semibold w-full whitespace-nowrap rounded-full bg-cover  transition-all hover:bg-purple-500 hover:shadow-inner;
   }
 
   .sidebar-link {
