@@ -4,7 +4,7 @@ const Credits = () => {
   return (
     <div>
       credit page
-      <img src="/goku.jpg" alt="goku image"></img>
+      <Image src="/goku.jpg" alt="goku image" />
     </div>
   );
 };
