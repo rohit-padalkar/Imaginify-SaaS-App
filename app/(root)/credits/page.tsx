@@ -4,7 +4,7 @@ const Credits = () => {
   return (
     <div>
       credit page
-      <Image src="/logo-text.png" alt="logo" width={180} height={28} />
+      <Image src="/goku.jpg" alt="logo" width={180} height={28} />
     </div>
   );
 };
